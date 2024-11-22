@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good Health - Interactive Experience</title>
+    <style>
+        /* Basic Styles */
+        body {
+            background: linear-gradient(to right, #230f40, #0b032d);
+            color: #e8e3ff;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        /* Header */
+        h1 {
+            color: #ffffff;
+            background: linear-gradient(90deg, #6a4aa0, #3c215d);
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 3em;
+            box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.6);
+            animation: pulseGlow 2s infinite alternate;
+            text-shadow: 2px 2px 8px rgba(230, 216, 255, 0.8);
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 20px #6a4aa0; }
+            100% { box-shadow: 0 0 40px #e6d8ff; }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: #bfa4f5;
+            font-size: 1.8em;
+            margin: 15px 0;
+            text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.2);
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.8em;
+            background: rgba(45, 35, 70, 0.85);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            margin: 20px 0;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+        }
+
+        p:hover {
+            transform: scale(1.02);
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .separator {
+            width: 80%;
+            height: 3px;
+            background: linear-gradient(to right, #7754a9, #a76bd4);
+            margin: 25px auto;
+            border-radius: 5px;
+        }
+
+        .highlighted-paragraph {
+            font-weight: bold;
+            color: #d9b3ff;
+            background: rgba(60, 33, 93, 0.95);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(214, 163, 255, 0.8);
+            animation: pulseGlow 1.5s infinite alternate;
+            transform: scale(1.05);
+        }
+
+        /* Trivia Section */
+        .trivia-section {
+            background: radial-gradient(circle, #2e1f47, #18092b);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+            margin-top: 40px;
+            color: #fff;
+            position: relative;
+            animation: fadeIn 2s ease forwards;
+        }
+
+        .trivia-section:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #7754a9, #a76bd4);
+            opacity: 0.3;
+            border-radius: 15px;
+            z-index: -1;
+        }
+
+        .question {
+            font-size: 1.6em;
+            font-weight: bold;
+            margin: 25px 0;
+            color: #dcc6ff;
+            text-shadow: 1px 1px 6px rgba(255, 255, 255, 0.3);
+        }
+
+        .answer {
+            margin: 10px 5px;
+            background: linear-gradient(135deg, #8b5bb5, #c185eb);
+            color: #ffffff;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .answer:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(135deg, #af7ed9, #c185eb);
+        }
+
+        .feedback {
+            font-size: 1.3em;
+            color: #ffd700;
+            margin-top: 20px;
+            font-weight: bold;
+            text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.4s ease-in;
+        }
+
+        /* Animation */
+        .show {
+            opacity: 1 !important;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            p {
+                font-size: 1em;
+            }
+            .answer {
+                font-size: 1em;
+                padding: 10px 15px;
+            }
+        }
+
+        /* Add some cool hover effects */
+        .container:hover {
+            background: rgba(0, 0, 0, 0.1);
+            transition: background 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>How to Maintain Good Health</h1>
+
+        <h2>1. The Importance of a Balanced Diet</h2>
+        <p>Maintaining a balanced diet is crucial to our overall health. Eating a variety of foods that provide the necessary nutrients helps our bodies function properly. This includes carbohydrates, proteins, fats, vitamins, and minerals. Consuming the right balance of these nutrients helps to support our immune system, build strong muscles, and boost energy levels...</p>
+
+        <div class="separator"></div>
+
+        <h2>2. Benefits of Staying Hydrated</h2>
+        <p>Hydration is fundamental to our health, as water makes up about 60% of our body. Staying hydrated helps to regulate body temperature, keep joints lubricated, and prevent infections. It's also essential for delivering nutrients to cells and keeping organs functioning properly. Dehydration, on the other hand, can lead to fatigue, headaches, and even mood changes...</p>
+
+        <div class="separator"></div>
+
+        <h2>3. Physical Activity and Its Effects on the Body</h2>
+        <p>Exercise is a powerful tool for staying healthy. Regular physical activity improves cardiovascular health, strengthens muscles, and enhances flexibility. It also has profound effects on mental well-being, reducing symptoms of depression and anxiety. Furthermore, exercise can help manage weight and lower the risk of chronic diseases...</p>
+
+        <div class="separator"></div>
+
+        <h2>4. Mental Wellness and Emotional Balance</h2>
+        <p>Mental health is just as important as physical health. Practicing mindfulness, managing stress, and seeking support when needed can help maintain emotional balance. Poor mental health can affect daily functioning, relationships, and physical health. Simple practices such as meditation, deep breathing exercises, and maintaining positive social connections can contribute to better mental well-being...</p>
+
+        <div class="separator"></div>
+
+        <h2>5. The Role of Good Sleep</h2>
+        <p>Quality sleep is essential for good health. It allows our bodies to repair and regenerate, supports brain function, and helps maintain emotional balance. Chronic sleep deprivation, on the other hand, can lead to various health issues, including high blood pressure, diabetes, and depression. Developing good sleep habits, such as a consistent bedtime routine, can significantly improve sleep quality...</p>
+
+        <div class="separator"></div>
+
+        <h2>6. UAE Health Initiatives</h2>
+        <p class="highlighted-paragraph">The United Arab Emirates (UAE) prioritizes good health through its advanced healthcare system, which includes world-class medical facilities and mandatory health insurance for residents. Public health initiatives focus on disease prevention and health awareness, encouraging regular screenings for chronic illnesses like diabetes and heart disease. The government promotes healthy lifestyles through fitness events and dietary guidelines. There is also an increasing emphasis on mental health services, encouraging individuals to seek help when needed. Traditional practices complement modern medicine, fostering community support and enhancing overall well-being for everyone in the UAE.</p>
+
+        <div class="trivia-section" id="questions-container">
+            <h2>Questions to check your understanding</h2>
+        </div>
+    </div>
+
+    <script>
+        const triviaQuestions = [
+            { question: "What is the main benefit of hydration?", answers: ["Protein synthesis", "Nutrient delivery", "Digestive aid", "Fat storage"], correctAnswer: "Nutrient delivery", explanation: "Water helps deliver nutrients to cells, keeping them functioning properly." },
+            { question: "What nutrient is essential for muscle growth?", answers: ["Fiber", "Protein", "Carbohydrates", "Fats"], correctAnswer: "Protein", explanation: "Protein is vital for repairing and building muscle tissue." },
+            { question: "How many hours of sleep is recommended for adults?", answers: ["5 hours", "6 hours", "7-9 hours", "10 hours"], correctAnswer: "7-9 hours", explanation: "Adults generally need 7-9 hours of sleep to function at their best." },
+            { question: "What is a healthy fat?", answers: ["Trans fat", "Saturated fat", "Polyunsaturated fat", "Cholesterol"], correctAnswer: "Polyunsaturated fat", explanation: "Polyunsaturated fats are beneficial and support heart health." },
+            { question: "Which activity is best for mental well-being?", answers: ["Meditation", "Weightlifting", "Running", "Dieting"], correctAnswer: "Meditation", explanation: "Meditation helps reduce stress and improve mental clarity." },
+            { question: "What nutrient provides energy?", answers: ["Protein", "Fats", "Vitamins", "Carbohydrates"], correctAnswer: "Carbohydrates", explanation: "Carbohydrates are the body’s primary energy source." },
+            { question: "What does exercise improve?", answers: ["Cardiovascular health", "Nail growth", "Skin tone", "Vitamin D levels"], correctAnswer: "Cardiovascular health", explanation: "Exercise strengthens the heart and improves circulation." },
+            { question: "Which vitamin supports immunity?", answers: ["Vitamin C", "Vitamin A", "Vitamin K", "Vitamin D"], correctAnswer: "Vitamin C", explanation: "Vitamin C boosts immune function and protects against infections." },
+            { question: "How much water should you drink daily?", answers: ["2 cups", "8 cups", "10 cups", "1 liter"], correctAnswer: "8 cups", explanation: "Drinking 8 cups of water daily is a common recommendation for hydration." }
+        ];
+
+        const questionsContainer = document.getElementById("questions-container");
+
+        triviaQuestions.forEach(({ question, answers, correctAnswer, explanation }) => {
+            const questionElem = document.createElement("div");
+            questionElem.className = "question";
+            questionElem.innerText = question;
+            questionsContainer.appendChild(questionElem);
+
+            answers.sort(() => Math.random() - 0.5);
+
+            const feedbackElem = document.createElement("div");
+            feedbackElem.className = "feedback";
+            questionsContainer.appendChild(feedbackElem);
+
+            answers.forEach(answer => {
+                const answerButton = document.createElement("button");
+                answerButton.className = "answer";
+                answerButton.innerText = answer;
+                
+                answerButton.onclick = function () {
+                    feedbackElem.classList.add("show");
+                    feedbackElem.innerText = answer === correctAnswer ? `Correct! ${explanation}` : `Incorrect. ${explanation}`;
+                    feedbackElem.style.color = answer === correctAnswer ? "#4CAF50" : "#FF5252";
+                };
+                questionsContainer.appendChild(answerButton);
+            });
+        });
+    </script>
+</body>
+</html>
